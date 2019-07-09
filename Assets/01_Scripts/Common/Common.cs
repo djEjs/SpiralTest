@@ -20,9 +20,14 @@ static public class Common
 		float _y = y;
 		float _z = 0;
 
-		_x = rad * Sin(x);
+		_x = -rad * Sin(x);
 		_z = rad * Cos(x);
 
 		return new Vector3(_x, _y, _z);
+	}
+	static public void Lookat(Transform tr, Vector3 TargetPos) { Lookat(tr, TargetPos, Vector3.up); }
+	static public void Lookat(Transform tr, Vector3 TargetPos, Vector3 up)
+	{
+		tr.LookAt(TargetPos, up);
 	}
 }
