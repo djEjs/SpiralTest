@@ -6,7 +6,7 @@ public class Player_Move : MonoBehaviour
 {
 	[Range(0, 360)]
 	public float x;
-	[Range(0, 30)]
+	[Range(-30, 30)]
 	public float y;
 	[Range(0.1f, 10)]
 	public float rad;

@@ -11,21 +11,35 @@ public class Test : MonoBehaviour
 	[Range(0.1f, 10)]
 	public float rad;
 
+	Transform tr;
+	public float rad_c;
+	public Vector3 scale_c;
+
+	private void Awake()
+	{
+		tr = transform;
+	}
+	private void Start()
+	{
+		rad_c = rad;
+		scale_c = tr.localScale;
+	}
+
 	private void Update()
 	{
-		transform.position = Common.ConvertPos(x * Mathf.Deg2Rad, y, rad);
+		tr.position = Common.ConvertPos(x * Mathf.Deg2Rad, y, rad);
 
 		if (x > 360) x -= 360;
 		if (x < 0) x += 360;
 	}
 	private void SizeUp()
 	{
-		rad = 3.3f;
-		transform.localScale = Vector3.one;
+		rad = rad_c + scale_c.y * 0.5f;
+		tr.localScale = Vector3.one * 0.5f;
 	}
 	private void SizeDown()
 	{
-		rad = 2.8f;
-		transform.localScale = Vector3.one - Vector3.forward * 0.9f;
+		rad = rad_c;
+		tr.localScale = scale_c;
 	}
 }
