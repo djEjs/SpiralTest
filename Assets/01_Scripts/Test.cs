@@ -27,7 +27,7 @@ public class Test : MonoBehaviour
 
 	private void Update()
 	{
-		tr.position = Common.ConvertPos(x * Mathf.Deg2Rad, y, rad);
+		tr.localPosition = Common.ConvertPos(x * Mathf.Deg2Rad, y, rad);
 
 		if (x > 360) x -= 360;
 		if (x < 0) x += 360;

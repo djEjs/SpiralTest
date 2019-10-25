@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lookat_Target : MonoBehaviour
 {
 	public Transform target;
+	public Vector2 offset;
 	Transform tr;
 
 	private void Awake()
@@ -16,7 +17,8 @@ public class Lookat_Target : MonoBehaviour
 	{
 		while (true)
 		{
-			Common.Lookat(tr, target.position);
+			var offsetPos = new Vector3(offset.x, offset.y);
+			Common.Lookat(tr, target.localPosition + offsetPos);
 			yield return null;
 		}
 	}
